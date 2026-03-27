@@ -16,7 +16,7 @@ A product inventory management application built with TanStack Start, React, Dri
 - [Node.js](https://nodejs.org/) (v18 or higher)
 - npm (comes with Node.js)
 
-## Setup (from GitHub ZIP)
+## Setup
 
 ### 1. Download and extract the project
 
