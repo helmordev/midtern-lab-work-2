@@ -9,5 +9,4 @@ dist-ssr
 .wrangler
 .output
 .vinxi
-__unconfig*
-todos.json
+dev.db
