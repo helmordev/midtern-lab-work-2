@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* ── Stock Pulse Indigo Theme ── */
+  --sp-primary: #4f46e5;
+  --sp-primary-hover: #3730a3;
+  --sp-primary-bg: #eef2ff;
+  --sp-primary-deep: #1e1b4b;
+
+  --sp-success-bg: #ecfdf5;
+  --sp-success-text: #065f46;
+  --sp-success-border: #059669;
+
+  --sp-warning-bg: #fef3c7;
+  --sp-warning-text: #92400e;
+  --sp-warning-border: #d97706;
+
+  --sp-danger-bg: #fef2f2;
+  --sp-danger-text: #991b1b;
+  --sp-danger-border: #dc2626;
+
+  --sp-row-bg: #f8f8fc;
+  --sp-body-text: #374151;
+  --sp-muted-text: #6b7280;
+
+  --sp-page-bg: #ffffff;
+  --sp-card-border: #e5e7eb;
+
+  /* ── shadcn design tokens (light) ── */
+  --background: #ffffff;
+  --foreground: #1e1b4b;
+  --card: #ffffff;
+  --card-foreground: #1e1b4b;
+  --popover: #ffffff;
+  --popover-foreground: #1e1b4b;
+  --primary: #4f46e5;
+  --primary-foreground: #ffffff;
+  --secondary: #eef2ff;
+  --secondary-foreground: #1e1b4b;
+  --muted: #f1f5f9;
+  --muted-foreground: #6b7280;
+  --accent: #eef2ff;
+  --accent-foreground: #1e1b4b;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #4f46e5;
+
+  --chart-1: #4f46e5;
+  --chart-2: #059669;
+  --chart-3: #d97706;
+  --chart-4: #dc2626;
+  --chart-5: #8b5cf6;
+
+  --radius: 0.625rem;
+
+  --sidebar: #fafafe;
+  --sidebar-foreground: #374151;
+  --sidebar-primary: #4f46e5;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #eef2ff;
+  --sidebar-accent-foreground: #1e1b4b;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #4f46e5;
+}
+
+.dark {
+  --sp-primary: #818cf8;
+  --sp-primary-hover: #a5b4fc;
+  --sp-primary-bg: #1e1b4b;
+  --sp-primary-deep: #c7d2fe;
+
+  --sp-success-bg: #064e3b;
+  --sp-success-text: #6ee7b7;
+  --sp-success-border: #34d399;
+
+  --sp-warning-bg: #451a03;
+  --sp-warning-text: #fcd34d;
+  --sp-warning-border: #f59e0b;
+
+  --sp-danger-bg: #450a0a;
+  --sp-danger-text: #fca5a5;
+  --sp-danger-border: #f87171;
+
+  --sp-row-bg: #1e1e2e;
+  --sp-body-text: #d1d5db;
+  --sp-muted-text: #9ca3af;
+
+  --sp-page-bg: #0f0f1a;
+  --sp-card-border: #2e2e3e;
+
+  /* ── shadcn design tokens (dark) ── */
+  --background: #0f0f1a;
+  --foreground: #e2e8f0;
+  --card: #1a1a2e;
+  --card-foreground: #e2e8f0;
+  --popover: #1a1a2e;
+  --popover-foreground: #e2e8f0;
+  --primary: #818cf8;
+  --primary-foreground: #0f0f1a;
+  --secondary: #1e1b4b;
+  --secondary-foreground: #c7d2fe;
+  --muted: #1e1e2e;
+  --muted-foreground: #9ca3af;
+  --accent: #1e1b4b;
+  --accent-foreground: #c7d2fe;
+  --destructive: #f87171;
+  --destructive-foreground: #0f0f1a;
+  --border: #2e2e3e;
+  --input: #2e2e3e;
+  --ring: #818cf8;
+
+  --chart-1: #818cf8;
+  --chart-2: #34d399;
+  --chart-3: #f59e0b;
+  --chart-4: #f87171;
+  --chart-5: #a78bfa;
+
+  --sidebar: #141425;
+  --sidebar-foreground: #d1d5db;
+  --sidebar-primary: #818cf8;
+  --sidebar-primary-foreground: #0f0f1a;
+  --sidebar-accent: #1e1b4b;
+  --sidebar-accent-foreground: #c7d2fe;
+  --sidebar-border: #2e2e3e;
+  --sidebar-ring: #818cf8;
+}
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Custom stock-pulse semantic colors */
+  --color-sp-primary: var(--sp-primary);
+  --color-sp-primary-hover: var(--sp-primary-hover);
+  --color-sp-primary-bg: var(--sp-primary-bg);
+  --color-sp-primary-deep: var(--sp-primary-deep);
+  --color-sp-success-bg: var(--sp-success-bg);
+  --color-sp-success-text: var(--sp-success-text);
+  --color-sp-success-border: var(--sp-success-border);
+  --color-sp-warning-bg: var(--sp-warning-bg);
+  --color-sp-warning-text: var(--sp-warning-text);
+  --color-sp-warning-border: var(--sp-warning-border);
+  --color-sp-danger-bg: var(--sp-danger-bg);
+  --color-sp-danger-text: var(--sp-danger-text);
+  --color-sp-danger-border: var(--sp-danger-border);
+  --color-sp-row-bg: var(--sp-row-bg);
+  --color-sp-body-text: var(--sp-body-text);
+  --color-sp-muted-text: var(--sp-muted-text);
+}
+
+html,
+body,
+#app {
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Stock Pulse Utility Classes ── */
+
+.stock-badge-in {
+  background-color: var(--sp-success-bg);
+  color: var(--sp-success-text);
+  border: 1px solid var(--sp-success-border);
+}
+
+.stock-badge-low {
+  background-color: var(--sp-warning-bg);
+  color: var(--sp-warning-text);
+  border: 1px solid var(--sp-warning-border);
+}
+
+.stock-badge-out {
+  background-color: var(--sp-danger-bg);
+  color: var(--sp-danger-text);
+  border: 1px solid var(--sp-danger-border);
+}
+
+.rise-in {
+  animation: rise-in 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
