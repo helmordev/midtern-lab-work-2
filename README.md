@@ -1,231 +1,142 @@
-Welcome to your new TanStack Start app! 
+# Ritualo Midterm Lab Work 2
 
-# Getting Started
+A product inventory management application built with TanStack Start, React, Drizzle ORM, and SQLite.
 
-To run this application:
+## Tech Stack
+
+- **Framework:** [TanStack Start](https://tanstack.com/start) (Full-stack React)
+- **UI:** [Tailwind CSS](https://tailwindcss.com/) + [Shadcn UI](https://ui.shadcn.com/)
+- **Database:** SQLite via [better-sqlite3](https://github.com/WiseLibs/better-sqlite3)
+- **ORM:** [Drizzle ORM](https://orm.drizzle.team/)
+- **Testing:** [Vitest](https://vitest.dev/)
+- **Linting/Formatting:** [Biome](https://biomejs.dev/)
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- npm (comes with Node.js)
+
+## Setup (from GitHub ZIP)
+
+### 1. Download and extract the project
+
+1. Extract the ZIP file to your desired location.
+2. Open a terminal and navigate to the extracted folder:
+
+```bash
+cd ritualo-midterm-lab-work-2-main
+```
+
+### 2. Install dependencies
 
 ```bash
 npm install
+```
+
+### 3. Create the environment file
+
+The `.env.local` file is not included in the ZIP. Create it in the project root:
+
+```bash
+# Windows (Command Prompt)
+echo DATABASE_URL="dev.db"> .env.local
+
+# Windows (PowerShell)
+'DATABASE_URL="dev.db"' | Out-File -Encoding utf8 .env.local
+
+# macOS / Linux
+echo 'DATABASE_URL="dev.db"' > .env.local
+```
+
+Or manually create a file named `.env.local` in the project root with the following content:
+
+```
+DATABASE_URL="dev.db"
+```
+
+### 4. Push the database schema
+
+This creates the SQLite database file and sets up the tables:
+
+```bash
+npm run db:push
+```
+
+### 5. Seed the database
+
+Populate the database with sample product data (25 products):
+
+```bash
+npm run db:seed
+```
+
+### 6. Run the development server
+
+```bash
 npm run dev
 ```
 
-# Building For Production
+The app will be available at **http://localhost:3000**.
 
-To build this application for production:
+## Quick Start (all commands)
+
+```bash
+npm install
+echo 'DATABASE_URL="dev.db"' > .env.local
+npm run db:push
+npm run db:seed
+npm run dev
+```
+
+## Available Scripts
+
+| Script | Description |
+|---|---|
+| `npm run dev` | Start the development server on port 3000 |
+| `npm run build` | Build the application for production |
+| `npm run preview` | Preview the production build |
+| `npm run test` | Run tests with Vitest |
+| `npm run lint` | Lint the codebase with Biome |
+| `npm run format` | Format the codebase with Biome |
+| `npm run check` | Run Biome checks (lint + format) |
+| `npm run db:push` | Push the schema to the database |
+| `npm run db:generate` | Generate Drizzle migrations |
+| `npm run db:migrate` | Run Drizzle migrations |
+| `npm run db:seed` | Seed the database with sample data |
+| `npm run db:studio` | Open Drizzle Studio (database GUI) |
+
+## Building for Production
 
 ```bash
 npm run build
 ```
 
-## Testing
+## Project Structure
 
-This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
-
-```bash
-npm run test
 ```
-
-## Styling
-
-This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
-
-### Removing Tailwind CSS
-
-If you prefer not to use Tailwind CSS:
-
-1. Remove the demo pages in `src/routes/demo/`
-2. Replace the Tailwind import in `src/styles.css` with your own styles
-3. Remove `tailwindcss()` from the plugins array in `vite.config.ts`
-4. Uninstall the packages: `npm install @tailwindcss/vite tailwindcss -D`
-
-## Linting & Formatting
-
-This project uses [Biome](https://biomejs.dev/) for linting and formatting. The following scripts are available:
-
-
-```bash
-npm run lint
-npm run format
-npm run check
+src/
+  components/   # Reusable UI components
+  data/         # Seed scripts and data utilities
+  db/           # Database schema and connection
+  hooks/        # Custom React hooks
+  integrations/ # Third-party integrations
+  lib/          # Utility functions
+  routes/       # File-based routes (TanStack Router)
+  server/       # Server-side logic
+  styles.css    # Global styles (Tailwind CSS)
+  env.ts        # Type-safe environment variables (T3 Env)
+  router.tsx    # Router configuration
 ```
+## Troubleshooting
 
+- **`better-sqlite3` build errors:** Make sure you have the necessary build tools installed. On Windows, you may need to install [Visual Studio Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) with the "Desktop development with C++" workload. On macOS, run `xcode-select --install`.
+- **Database not found:** Ensure the `.env.local` file exists in the project root with `DATABASE_URL="dev.db"` and that you ran `npm run db:push` before starting the server.
+- **Port 3000 already in use:** Stop any other process using port 3000, or modify the port in the `dev` script inside `package.json`.
 
-## Shadcn
+## Learn More
 
-Add components using the latest version of [Shadcn](https://ui.shadcn.com/).
-
-```bash
-pnpm dlx shadcn@latest add button
-```
-
-
-## T3Env
-
-- You can use T3Env to add type safety to your environment variables.
-- Add Environment variables to the `src/env.mjs` file.
-- Use the environment variables in your code.
-
-### Usage
-
-```ts
-import { env } from "#/env";
-
-console.log(env.VITE_APP_TITLE);
-```
-
-
-
-
-
-
-## Routing
-
-This project uses [TanStack Router](https://tanstack.com/router) with file-based routing. Routes are managed as files in `src/routes`.
-
-### Adding A Route
-
-To add a new route to your application just add a new file in the `./src/routes` directory.
-
-TanStack will automatically generate the content of the route file for you.
-
-Now that you have two routes you can use a `Link` component to navigate between them.
-
-### Adding Links
-
-To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
-
-```tsx
-import { Link } from "@tanstack/react-router";
-```
-
-Then anywhere in your JSX you can use it like so:
-
-```tsx
-<Link to="/about">About</Link>
-```
-
-This will create a link that will navigate to the `/about` route.
-
-More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
-
-### Using A Layout
-
-In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you render `{children}` in the `shellComponent`.
-
-Here is an example layout that includes a header:
-
-```tsx
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
-
-export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'My App' },
-    ],
-  }),
-  shellComponent: ({ children }) => (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        <header>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-          </nav>
-        </header>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  ),
-})
-```
-
-More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
-
-## Server Functions
-
-TanStack Start provides server functions that allow you to write server-side code that seamlessly integrates with your client components.
-
-```tsx
-import { createServerFn } from '@tanstack/react-start'
-
-const getServerTime = createServerFn({
-  method: 'GET',
-}).handler(async () => {
-  return new Date().toISOString()
-})
-
-// Use in a component
-function MyComponent() {
-  const [time, setTime] = useState('')
-  
-  useEffect(() => {
-    getServerTime().then(setTime)
-  }, [])
-  
-  return <div>Server time: {time}</div>
-}
-```
-
-## API Routes
-
-You can create API routes by using the `server` property in your route definitions:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-import { json } from '@tanstack/react-start'
-
-export const Route = createFileRoute('/api/hello')({
-  server: {
-    handlers: {
-      GET: () => json({ message: 'Hello, World!' }),
-    },
-  },
-})
-```
-
-## Data Fetching
-
-There are multiple ways to fetch data in your application. You can use TanStack Query to fetch data from a server. But you can also use the `loader` functionality built into TanStack Router to load the data for a route before it's rendered.
-
-For example:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-
-export const Route = createFileRoute('/people')({
-  loader: async () => {
-    const response = await fetch('https://swapi.dev/api/people')
-    return response.json()
-  },
-  component: PeopleComponent,
-})
-
-function PeopleComponent() {
-  const data = Route.useLoaderData()
-  return (
-    <ul>
-      {data.results.map((person) => (
-        <li key={person.name}>{person.name}</li>
-      ))}
-    </ul>
-  )
-}
-```
-
-Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
-
-# Demo files
-
-Files prefixed with `demo` can be safely deleted. They are there to provide a starting point for you to play around with the features you've installed.
-
-# Learn More
-
-You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
-
-For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).
+- [TanStack Start](https://tanstack.com/start) - Full-stack React framework
+- [TanStack Router](https://tanstack.com/router) - Type-safe file-based routing
+- [Drizzle ORM](https://orm.drizzle.team/) - TypeScript ORM
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
+- [Shadcn UI](https://ui.shadcn.com/) - Re-usable UI components
